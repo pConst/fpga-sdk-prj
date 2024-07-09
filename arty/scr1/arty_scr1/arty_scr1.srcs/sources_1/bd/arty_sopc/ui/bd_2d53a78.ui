@@ -1,0 +1,42 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.463354",
+   "Default View_TopLeft":"-950,-110",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
+#  -string -flagsOSRD
+preplace port ahb_dmem -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
+preplace port ahb_imem -pg 1 -lvl 0 -x 0 -y 50 -defaultsOSRD
+preplace port bld_id -pg 1 -lvl 4 -x 880 -y 20 -defaultsOSRD
+preplace port core_clk_freq -pg 1 -lvl 4 -x 880 -y 50 -defaultsOSRD
+preplace port pio_led -pg 1 -lvl 4 -x 880 -y 110 -defaultsOSRD
+preplace port pio_led_rgb -pg 1 -lvl 4 -x 880 -y 140 -defaultsOSRD
+preplace port pio_pb -pg 1 -lvl 4 -x 880 -y 170 -defaultsOSRD
+preplace port ddr3 -pg 1 -lvl 4 -x 880 -y 80 -defaultsOSRD
+preplace port soc_id -pg 1 -lvl 4 -x 880 -y 380 -defaultsOSRD
+preplace port uart -pg 1 -lvl 4 -x 880 -y 410 -defaultsOSRD
+preplace port port-id_cpu_clk_o -pg 1 -lvl 4 -x 880 -y 200 -defaultsOSRD
+preplace port port-id_cpu_reset_o -pg 1 -lvl 4 -x 880 -y 230 -defaultsOSRD
+preplace port port-id_ddr3_init_complete -pg 1 -lvl 4 -x 880 -y 260 -defaultsOSRD
+preplace port port-id_osc_clk -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace port port-id_pio_pb_irq -pg 1 -lvl 4 -x 880 -y 290 -defaultsOSRD
+preplace port port-id_pwrup_rst_n_o -pg 1 -lvl 4 -x 880 -y 320 -defaultsOSRD
+preplace port port-id_soc_rst_n -pg 1 -lvl 0 -x 0 -y 110 -defaultsOSRD
+preplace port port-id_uart_irq -pg 1 -lvl 4 -x 880 -y 350 -defaultsOSRD
+preplace inst ahblite_axi_bridge_0 -pg 1 -lvl 3 -x 700 -y 80 -defaultsOSRD
+preplace inst ahblite_axi_bridge_1 -pg 1 -lvl 3 -x 700 -y 220 -defaultsOSRD
+preplace inst axi_bram_ctrl_0 -pg 1 -lvl 3 -x 700 -y 360 -defaultsOSRD
+preplace inst axi_dwidth_converter_0 -pg 1 -lvl 3 -x 700 -y 500 -defaultsOSRD
+preplace inst axi_gpio_pb -pg 1 -lvl 3 -x 700 -y 640 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 2 -x 400 -y 310 -defaultsOSRD
+preplace inst axi_uart16550_0 -pg 1 -lvl 2 -x 400 -y 690 -defaultsOSRD
+preplace inst bld_id -pg 1 -lvl 2 -x 400 -y 840 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 2 -x 400 -y 970 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 400 -y 1110 -defaultsOSRD
+preplace inst core_clk_freq -pg 1 -lvl 1 -x 140 -y 80 -defaultsOSRD
+preplace inst ddr3_sdram -pg 1 -lvl 1 -x 140 -y 240 -defaultsOSRD
+levelinfo -pg 1 0 140 400 700 880
+pagesize -pg 1 -db -bbox -sgen -120 0 1050 1200
+"
+}
+

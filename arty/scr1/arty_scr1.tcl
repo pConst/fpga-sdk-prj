@@ -31,8 +31,10 @@
 #
 #*****************************************************************************************
 
+cd "D:/dev/scr1/scr1-sdk/fpga/arty/scr1"
+
 # Set the reference directory for source file relative paths (by default the value is script directory path)
-set origin_dir "."
+set origin_dir "D:/dev/scr1/scr1-sdk/fpga/arty/scr1"
 
 # Use origin directory path location variable, if specified in the tcl shell
 if { [info exists ::origin_dir_loc] } {
@@ -470,7 +472,7 @@ proc cr_bd_arty_sopc { parentCell } {
   set bCheckIPs 1
   if { $bCheckIPs == 1 } {
     if {[expr [string range [version -short] 0 5] > "2018.2"]} {
-      set list_check_ips "\ 
+      set list_check_ips "\
       xilinx.com:ip:ahblite_axi_bridge:3.0\
       xilinx.com:ip:axi_bram_ctrl:4.1\
       xilinx.com:ip:axi_dwidth_converter:2.1\
@@ -483,7 +485,7 @@ proc cr_bd_arty_sopc { parentCell } {
       xilinx.com:ip:xlconstant:1.1\
       "
     } else {
-      set list_check_ips "\ 
+      set list_check_ips "\
       xilinx.com:ip:ahblite_axi_bridge:3.0\
       xilinx.com:ip:axi_bram_ctrl:4.0\
       xilinx.com:ip:axi_gpio:2.0\
@@ -586,7 +588,7 @@ proc cr_bd_arty_sopc { parentCell } {
   } else {
     set axi_bram_ctrl_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.0 axi_bram_ctrl_0 ]
   }
-    
+
   set_property -dict [ list \
    CONFIG.C_SELECT_XPM {0} \
    CONFIG.PROTOCOL {AXI4LITE} \
@@ -819,7 +821,7 @@ proc cr_bd_arty_sopc { parentCell } {
   current_bd_instance $oldCurInst
 
   save_bd_design
-  close_bd_design $design_name 
+  close_bd_design $design_name
 }
 # End of cr_bd_arty_sopc()
 cr_bd_arty_sopc ""
@@ -827,10 +829,9 @@ set_property SYNTH_CHECKPOINT_MODE "Hierarchical" [get_files arty_sopc.bd ]
 
 # Create 'synth_1' run (if not found)
 if {[string equal [get_runs -quiet synth_1] ""]} {
-    create_run -name synth_1 -part xc7a35ticsg324-1L -flow {Vivado Synthesis 2018} -strategy "Flow_PerfOptimized_high" -report_strategy {No Reports} -constrset constrs_1
+    create_run -name synth_1 -part xc7a35ticsg324-1L -strategy "Flow_PerfOptimized_high" -report_strategy {No Reports} -constrset constrs_1
 } else {
   set_property strategy "Flow_PerfOptimized_high" [get_runs synth_1]
-  set_property flow "Vivado Synthesis 2018" [get_runs synth_1]
 }
 set obj [get_runs synth_1]
 set_property set_report_strategy_name 1 $obj
@@ -846,7 +847,7 @@ if { $obj != "" } {
 }
 set obj [get_runs synth_1]
 set_property -name "strategy" -value "Flow_PerfOptimized_high" -objects $obj
-set_property -name "steps.synth_design.args.fanout_limit" -value "400" -objects $obj
+# set_property -name "steps.synth_design.args.fanout_limit" -value "400" -objects $obj
 set_property -name "steps.synth_design.args.fsm_extraction" -value "one_hot" -objects $obj
 set_property -name "steps.synth_design.args.keep_equivalent_registers" -value "1" -objects $obj
 set_property -name "steps.synth_design.args.resource_sharing" -value "off" -objects $obj
@@ -858,10 +859,9 @@ current_run -synthesis [get_runs synth_1]
 
 # Create 'impl_1' run (if not found)
 if {[string equal [get_runs -quiet impl_1] ""]} {
-    create_run -name impl_1 -part xc7a35ticsg324-1L -flow {Vivado Implementation 2018} -strategy "Performance_WLBlockPlacement" -report_strategy {No Reports} -constrset constrs_2 -parent_run synth_1
+    create_run -name impl_1 -part xc7a35ticsg324-1L -strategy "Performance_WLBlockPlacement" -report_strategy {No Reports} -constrset constrs_2 -parent_run synth_1
 } else {
   set_property strategy "Performance_WLBlockPlacement" [get_runs impl_1]
-  set_property flow "Vivado Implementation 2018" [get_runs impl_1]
 }
 set obj [get_runs impl_1]
 set_property set_report_strategy_name 1 $obj
